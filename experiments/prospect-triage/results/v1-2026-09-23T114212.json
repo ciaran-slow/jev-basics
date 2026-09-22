@@ -1,0 +1,547 @@
+{
+  "mode": "live",
+  "version": "v1",
+  "started": "2026-09-23T11:42:12",
+  "cases": [
+    {
+      "id": "strong-lead",
+      "expected": "promote",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Kōwhai Labs (fictional)",
+            "title": "Graduate Software Engineer",
+            "url": "https://example.com/kowhai/careers",
+            "source": "meetup",
+            "notes": "Engineering manager at the Wellington JS meetup said they are hiring two graduate developers in February, with a buddy system for new starters. Posting goes live next month."
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "watch",
+            "probabilities": {
+              "unknown": 0,
+              "promote": 0.17,
+              "watch": 0.83,
+              "drop": 0
+            },
+            "confidence": 0.77
+          }
+        },
+        "usage": {
+          "input_tokens": 589,
+          "output_tokens": 47,
+          "cost": 2.4738e-05
+        },
+        "id": "gen-dec-1790120533-yQoHCvBBj29a1wQVi3iq",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.578,
+      "choice": "watch"
+    },
+    {
+      "id": "clear-senior",
+      "expected": "drop",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Harbourline Software (fictional)",
+            "title": "Senior Platform Engineer",
+            "url": "https://example.com/harbourline/jobs/42",
+            "source": "aggregator",
+            "notes": "Asks for 8+ years with Kubernetes. On-site in Auckland, no remote."
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "drop",
+            "probabilities": {
+              "drop": 1,
+              "watch": 0,
+              "promote": 0,
+              "unknown": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 578,
+          "output_tokens": 47,
+          "cost": 2.4276e-05
+        },
+        "id": "gen-dec-1790120533-aYQIgqLD5TUD2h0Ta3mk",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.335,
+      "choice": "drop"
+    },
+    {
+      "id": "not-dev",
+      "expected": "drop",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Pūkeko Games (fictional)",
+            "title": "Customer Support Lead",
+            "url": null,
+            "source": "linkedin",
+            "notes": "Team lead for the player support desk. Shift work."
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "drop",
+            "probabilities": {
+              "drop": 1,
+              "promote": 0,
+              "unknown": 0,
+              "watch": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 555,
+          "output_tokens": 47,
+          "cost": 2.331e-05
+        },
+        "id": "gen-dec-1790120534-GwkbgCukptZCk1LSEoPc",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.316,
+      "choice": "drop"
+    },
+    {
+      "id": "growth-signal",
+      "expected": "watch",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Tūī Analytics (fictional)",
+            "title": null,
+            "url": null,
+            "source": "manual",
+            "notes": "Raised a Series A last month. The CTO posted that they plan to double the Wellington engineering team next year."
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "watch",
+            "probabilities": {
+              "unknown": 0.01,
+              "watch": 0.98,
+              "drop": 0,
+              "promote": 0.01
+            },
+            "confidence": 0.97
+          }
+        },
+        "usage": {
+          "input_tokens": 562,
+          "output_tokens": 47,
+          "cost": 2.3604e-05
+        },
+        "id": "gen-dec-1790120534-eQVvh5uFGOPQvxPHDiOS",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.338,
+      "choice": "watch"
+    },
+    {
+      "id": "name-only",
+      "expected": "unknown",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Weta Ridge Ltd (fictional)",
+            "title": null,
+            "url": null,
+            "source": "manual",
+            "notes": null
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "unknown",
+            "probabilities": {
+              "watch": 0.04,
+              "promote": 0,
+              "drop": 0,
+              "unknown": 0.96
+            },
+            "confidence": 0.95
+          }
+        },
+        "usage": {
+          "input_tokens": 539,
+          "output_tokens": 47,
+          "cost": 2.2638e-05
+        },
+        "id": "gen-dec-1790120534-1Tt4wKGIczVP8FIBsIuy",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.296,
+      "choice": "unknown"
+    },
+    {
+      "id": "url-only",
+      "expected": "unknown",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Moana Systems (fictional)",
+            "title": null,
+            "url": "https://example.com/moana/careers",
+            "source": "aggregator",
+            "notes": null
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "unknown",
+            "probabilities": {
+              "watch": 0.12,
+              "unknown": 0.88,
+              "promote": 0,
+              "drop": 0
+            },
+            "confidence": 0.84
+          }
+        },
+        "usage": {
+          "input_tokens": 550,
+          "output_tokens": 47,
+          "cost": 2.31e-05
+        },
+        "id": "gen-dec-1790120535-G7sOZOdJI8VzW9auzbyk",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.385,
+      "choice": "unknown"
+    },
+    {
+      "id": "word-of-mouth",
+      "expected": "watch",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Kererū Tech (fictional)",
+            "title": "Junior developer?",
+            "url": null,
+            "source": "Aroha (a friend)",
+            "notes": "A friend says they sometimes take juniors, but there is no posting and she is not sure when."
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "watch",
+            "probabilities": {
+              "watch": 1,
+              "promote": 0,
+              "unknown": 0,
+              "drop": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 571,
+          "output_tokens": 47,
+          "cost": 2.3982e-05
+        },
+        "id": "gen-dec-1790120535-3CweowGdi4TBMuXd36iE",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.342,
+      "choice": "watch"
+    },
+    {
+      "id": "wrong-location",
+      "expected": "drop",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Rātā Health (fictional)",
+            "title": "Junior Developer",
+            "url": "https://example.com/rata/junior-dev",
+            "source": "linkedin",
+            "notes": "Good grad programme with mentoring. On-site in Sydney only, no visa sponsorship."
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "drop",
+            "probabilities": {
+              "unknown": 0,
+              "watch": 0,
+              "drop": 1,
+              "promote": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 570,
+          "output_tokens": 47,
+          "cost": 2.394e-05
+        },
+        "id": "gen-dec-1790120535-ngWzZeFoG4WcV36gvOdO",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.418,
+      "choice": "drop"
+    },
+    {
+      "id": "closed-posting",
+      "expected": "watch",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Fernbird Digital (fictional)",
+            "title": "Junior Frontend Developer",
+            "url": "https://example.com/fernbird/jobs/7",
+            "source": "aggregator",
+            "notes": "Wellington hybrid, React. The posting closed three months ago and has not reopened."
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "watch",
+            "probabilities": {
+              "promote": 0.01,
+              "drop": 0.25,
+              "watch": 0.74,
+              "unknown": 0
+            },
+            "confidence": 0.66
+          }
+        },
+        "usage": {
+          "input_tokens": 578,
+          "output_tokens": 47,
+          "cost": 2.4276e-05
+        },
+        "id": "gen-dec-1790120536-d5IYYhAXfiEN17uOPIYO",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.345,
+      "choice": "watch"
+    },
+    {
+      "id": "mixed-signals",
+      "expected": "watch",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "looking_for": "A first junior or graduate software developer role. Wellington, New Zealand (hybrid or on-site) or remote within New Zealand. Mentorship matters. Not interested in senior roles, support, data engineering or testing-only roles, or roles that need relocating overseas.",
+          "prospect": {
+            "company": "Kahu Cloud (fictional)",
+            "title": "Developer",
+            "url": null,
+            "source": "linkedin",
+            "notes": "A LinkedIn post from an engineer says they are hiring juniors. Their recruiter replied to my message saying they are only hiring seniors this year."
+          }
+        },
+        "questions": {
+          "triage": {
+            "type": "choice",
+            "instructions": "Compare prospect with looking_for. What should happen to this prospect next?",
+            "criteria": {
+              "promote": "There is, or will soon be, a specific role that fits looking_for. It is worth turning into an opportunity now.",
+              "watch": "It could fit looking_for later, but there is no suitable role to act on yet, or the evidence is second-hand or uncertain.",
+              "drop": "The prospect clearly does not fit looking_for, for example a senior role, a non-development role, or a location that is ruled out.",
+              "unknown": "There is not enough information in prospect to judge the fit."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "triage": {
+            "type": "choice",
+            "choice": "drop",
+            "probabilities": {
+              "drop": 0.5,
+              "unknown": 0,
+              "promote": 0,
+              "watch": 0.5
+            },
+            "confidence": 0.33
+          }
+        },
+        "usage": {
+          "input_tokens": 571,
+          "output_tokens": 47,
+          "cost": 2.3982e-05
+        },
+        "id": "gen-dec-1790120536-hWYyTIY9u6DWMBqBP1df",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.39,
+      "choice": "drop"
+    }
+  ]
+}

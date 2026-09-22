@@ -1,0 +1,112 @@
+[
+  {
+    "id": "strong-lead",
+    "note": "Clear case: named grad roles, a person inside, mentoring mentioned",
+    "prospect": {
+      "company": "Kōwhai Labs (fictional)",
+      "title": "Graduate Software Engineer",
+      "url": "https://example.com/kowhai/careers",
+      "source": "meetup",
+      "notes": "Engineering manager at the Wellington JS meetup said they are hiring two graduate developers in February, with a buddy system for new starters. Posting goes live next month."
+    }
+  },
+  {
+    "id": "clear-senior",
+    "note": "Clear case: senior, on-site outside Wellington",
+    "prospect": {
+      "company": "Harbourline Software (fictional)",
+      "title": "Senior Platform Engineer",
+      "url": "https://example.com/harbourline/jobs/42",
+      "source": "aggregator",
+      "notes": "Asks for 8+ years with Kubernetes. On-site in Auckland, no remote."
+    }
+  },
+  {
+    "id": "not-dev",
+    "note": "Clear case: not a development role",
+    "prospect": {
+      "company": "Pūkeko Games (fictional)",
+      "title": "Customer Support Lead",
+      "url": null,
+      "source": "linkedin",
+      "notes": "Team lead for the player support desk. Shift work."
+    }
+  },
+  {
+    "id": "growth-signal",
+    "note": "No role yet, but a real signal of future hiring",
+    "prospect": {
+      "company": "Tūī Analytics (fictional)",
+      "title": null,
+      "url": null,
+      "source": "manual",
+      "notes": "Raised a Series A last month. The CTO posted that they plan to double the Wellington engineering team next year."
+    }
+  },
+  {
+    "id": "name-only",
+    "note": "Incomplete: company name and nothing else",
+    "prospect": {
+      "company": "Weta Ridge Ltd (fictional)",
+      "title": null,
+      "url": null,
+      "source": "manual",
+      "notes": null
+    }
+  },
+  {
+    "id": "url-only",
+    "note": "Incomplete: a careers link but no notes or title",
+    "prospect": {
+      "company": "Moana Systems (fictional)",
+      "title": null,
+      "url": "https://example.com/moana/careers",
+      "source": "aggregator",
+      "notes": null
+    }
+  },
+  {
+    "id": "word-of-mouth",
+    "note": "Ambiguous: second-hand and vague",
+    "prospect": {
+      "company": "Kererū Tech (fictional)",
+      "title": "Junior developer?",
+      "url": null,
+      "source": "Aroha (a friend)",
+      "notes": "A friend says they sometimes take juniors, but there is no posting and she is not sure when."
+    }
+  },
+  {
+    "id": "wrong-location",
+    "note": "Junior role but on-site in another country",
+    "prospect": {
+      "company": "Rātā Health (fictional)",
+      "title": "Junior Developer",
+      "url": "https://example.com/rata/junior-dev",
+      "source": "linkedin",
+      "notes": "Good grad programme with mentoring. On-site in Sydney only, no visa sponsorship."
+    }
+  },
+  {
+    "id": "closed-posting",
+    "note": "Ambiguous: good fit, but the posting has closed",
+    "prospect": {
+      "company": "Fernbird Digital (fictional)",
+      "title": "Junior Frontend Developer",
+      "url": "https://example.com/fernbird/jobs/7",
+      "source": "aggregator",
+      "notes": "Wellington hybrid, React. The posting closed three months ago and has not reopened."
+    }
+  },
+  {
+    "id": "mixed-signals",
+    "note": "Ambiguous: the notes contradict each other",
+    "prospect": {
+      "company": "Kahu Cloud (fictional)",
+      "title": "Developer",
+      "url": null,
+      "source": "linkedin",
+      "notes": "A LinkedIn post from an engineer says they are hiring juniors. Their recruiter replied to my message saying they are only hiring seniors this year."
+    }
+  }
+]
