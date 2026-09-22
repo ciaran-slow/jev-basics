@@ -1,0 +1,412 @@
+{
+  "mode": "live",
+  "version": "v1",
+  "started": "2026-09-23T11:18:49",
+  "cases": [
+    {
+      "id": "clear-dev",
+      "expected": "software",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": "Title: Junior Full-Stack Developer\nCompany: Kōwhai Labs (fictional)\nLocation: Wellington, hybrid\nYou will build features in our TypeScript and React web app and the Python API behind it, pair with senior engineers, write tests and review pull requests.",
+        "questions": {
+          "scope": {
+            "type": "choice",
+            "instructions": "Is this listing a software development role?",
+            "criteria": {
+              "software": "A role whose main work is writing software. This includes roles whose title says AI, automation, integration or platform when writing code is the main work.",
+              "not_software": "A role whose main work is not writing software, such as technical support, data engineering, machine learning research, firmware, testing only or project management.",
+              "not_a_role": "The page is not a specific role, such as an expression of interest or a careers page with no position.",
+              "unknown": "It is a role, but the text does not establish what the main work is."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "scope": {
+            "type": "choice",
+            "choice": "software",
+            "probabilities": {
+              "not_software": 0,
+              "not_a_role": 0,
+              "software": 1,
+              "unknown": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 491,
+          "output_tokens": 50,
+          "cost": 2.0622e-05
+        },
+        "id": "gen-dec-1790119129-dPykJKrmZqKW01TcNK3g",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 1.146,
+      "choice": "software"
+    },
+    {
+      "id": "clear-support",
+      "expected": "not_software",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": "Title: Technical Support Specialist\nCompany: Harbourline Software (fictional)\nLocation: Wellington\nYou will answer customer tickets by phone and email, reproduce issues, write help-centre articles and escalate bugs to the engineering team. No coding required.",
+        "questions": {
+          "scope": {
+            "type": "choice",
+            "instructions": "Is this listing a software development role?",
+            "criteria": {
+              "software": "A role whose main work is writing software. This includes roles whose title says AI, automation, integration or platform when writing code is the main work.",
+              "not_software": "A role whose main work is not writing software, such as technical support, data engineering, machine learning research, firmware, testing only or project management.",
+              "not_a_role": "The page is not a specific role, such as an expression of interest or a careers page with no position.",
+              "unknown": "It is a role, but the text does not establish what the main work is."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "scope": {
+            "type": "choice",
+            "choice": "not_software",
+            "probabilities": {
+              "unknown": 0,
+              "not_a_role": 0,
+              "not_software": 1,
+              "software": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 484,
+          "output_tokens": 53,
+          "cost": 2.0328e-05
+        },
+        "id": "gen-dec-1790119130-dWG7YN5fmxC9CNVAzG3K",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.531,
+      "choice": "not_software"
+    },
+    {
+      "id": "ai-title-dev",
+      "expected": "software",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": "Title: AI Automation Engineer\nCompany: Fernbird Digital (fictional)\nLocation: Remote, NZ\nYou will write and maintain the TypeScript services that connect our product to LLM APIs, build internal automation tools and ship code to production every week.",
+        "questions": {
+          "scope": {
+            "type": "choice",
+            "instructions": "Is this listing a software development role?",
+            "criteria": {
+              "software": "A role whose main work is writing software. This includes roles whose title says AI, automation, integration or platform when writing code is the main work.",
+              "not_software": "A role whose main work is not writing software, such as technical support, data engineering, machine learning research, firmware, testing only or project management.",
+              "not_a_role": "The page is not a specific role, such as an expression of interest or a careers page with no position.",
+              "unknown": "It is a role, but the text does not establish what the main work is."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "scope": {
+            "type": "choice",
+            "choice": "software",
+            "probabilities": {
+              "not_software": 0,
+              "not_a_role": 0,
+              "unknown": 0,
+              "software": 1
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 486,
+          "output_tokens": 50,
+          "cost": 2.0412e-05
+        },
+        "id": "gen-dec-1790119130-MauuIrwhs1Kp7yH1H03Y",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.272,
+      "choice": "software"
+    },
+    {
+      "id": "data-eng",
+      "expected": "not_software",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": "Title: Graduate Data Engineer\nCompany: Tūī Analytics (fictional)\nLocation: Auckland\nYou will build and monitor data pipelines in dbt and Airflow, model warehouse tables in Snowflake and support analysts with SQL.",
+        "questions": {
+          "scope": {
+            "type": "choice",
+            "instructions": "Is this listing a software development role?",
+            "criteria": {
+              "software": "A role whose main work is writing software. This includes roles whose title says AI, automation, integration or platform when writing code is the main work.",
+              "not_software": "A role whose main work is not writing software, such as technical support, data engineering, machine learning research, firmware, testing only or project management.",
+              "not_a_role": "The page is not a specific role, such as an expression of interest or a careers page with no position.",
+              "unknown": "It is a role, but the text does not establish what the main work is."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "scope": {
+            "type": "choice",
+            "choice": "not_software",
+            "probabilities": {
+              "not_a_role": 0,
+              "unknown": 0,
+              "not_software": 0.99,
+              "software": 0.01
+            },
+            "confidence": 0.98
+          }
+        },
+        "usage": {
+          "input_tokens": 481,
+          "output_tokens": 53,
+          "cost": 2.0202e-05
+        },
+        "id": "gen-dec-1790119131-OXoCIXrGbOCloAPa1MjS",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.332,
+      "choice": "not_software"
+    },
+    {
+      "id": "qa-only",
+      "expected": "not_software",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": "Title: Manual QA Tester\nCompany: Pūkeko Games (fictional)\nLocation: Wellington\nYou will play-test builds, follow test scripts, log bugs in Jira and verify fixes before release.",
+        "questions": {
+          "scope": {
+            "type": "choice",
+            "instructions": "Is this listing a software development role?",
+            "criteria": {
+              "software": "A role whose main work is writing software. This includes roles whose title says AI, automation, integration or platform when writing code is the main work.",
+              "not_software": "A role whose main work is not writing software, such as technical support, data engineering, machine learning research, firmware, testing only or project management.",
+              "not_a_role": "The page is not a specific role, such as an expression of interest or a careers page with no position.",
+              "unknown": "It is a role, but the text does not establish what the main work is."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "scope": {
+            "type": "choice",
+            "choice": "not_software",
+            "probabilities": {
+              "not_a_role": 0,
+              "not_software": 1,
+              "software": 0,
+              "unknown": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 474,
+          "output_tokens": 53,
+          "cost": 1.9908e-05
+        },
+        "id": "gen-dec-1790119131-rPBcoHOBaCgxzXkcNTnQ",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.399,
+      "choice": "not_software"
+    },
+    {
+      "id": "careers-page",
+      "expected": "not_a_role",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": "Careers at Moana Systems (fictional)\nWe are always looking for curious people. We have no open roles right now, but follow us on LinkedIn to hear when we are hiring.",
+        "questions": {
+          "scope": {
+            "type": "choice",
+            "instructions": "Is this listing a software development role?",
+            "criteria": {
+              "software": "A role whose main work is writing software. This includes roles whose title says AI, automation, integration or platform when writing code is the main work.",
+              "not_software": "A role whose main work is not writing software, such as technical support, data engineering, machine learning research, firmware, testing only or project management.",
+              "not_a_role": "The page is not a specific role, such as an expression of interest or a careers page with no position.",
+              "unknown": "It is a role, but the text does not establish what the main work is."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "scope": {
+            "type": "choice",
+            "choice": "not_a_role",
+            "probabilities": {
+              "not_a_role": 1,
+              "software": 0,
+              "not_software": 0,
+              "unknown": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 473,
+          "output_tokens": 52,
+          "cost": 1.9866e-05
+        },
+        "id": "gen-dec-1790119131-Nqm8kgTPcRPF9pGAXFew",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.425,
+      "choice": "not_a_role"
+    },
+    {
+      "id": "eoi",
+      "expected": "not_a_role",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": "Title: Expression of Interest - Future Opportunities\nCompany: Kererū Tech (fictional)\nSend us your CV and we will keep it on file for future engineering, design and support roles.",
+        "questions": {
+          "scope": {
+            "type": "choice",
+            "instructions": "Is this listing a software development role?",
+            "criteria": {
+              "software": "A role whose main work is writing software. This includes roles whose title says AI, automation, integration or platform when writing code is the main work.",
+              "not_software": "A role whose main work is not writing software, such as technical support, data engineering, machine learning research, firmware, testing only or project management.",
+              "not_a_role": "The page is not a specific role, such as an expression of interest or a careers page with no position.",
+              "unknown": "It is a role, but the text does not establish what the main work is."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "scope": {
+            "type": "choice",
+            "choice": "not_a_role",
+            "probabilities": {
+              "unknown": 0,
+              "software": 0,
+              "not_a_role": 1,
+              "not_software": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": 472,
+          "output_tokens": 52,
+          "cost": 1.9824e-05
+        },
+        "id": "gen-dec-1790119132-jpP07jSRYPdsGG39fN6J",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.394,
+      "choice": "not_a_role"
+    },
+    {
+      "id": "ambiguous-integration",
+      "expected": "not_software",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": "Title: Integration Specialist\nCompany: Rātā Health (fictional)\nLocation: Wellington\nYou will configure our platform for new hospital customers, map their data fields, write some JavaScript scripts for custom connectors and run onboarding workshops.",
+        "questions": {
+          "scope": {
+            "type": "choice",
+            "instructions": "Is this listing a software development role?",
+            "criteria": {
+              "software": "A role whose main work is writing software. This includes roles whose title says AI, automation, integration or platform when writing code is the main work.",
+              "not_software": "A role whose main work is not writing software, such as technical support, data engineering, machine learning research, firmware, testing only or project management.",
+              "not_a_role": "The page is not a specific role, such as an expression of interest or a careers page with no position.",
+              "unknown": "It is a role, but the text does not establish what the main work is."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "scope": {
+            "type": "choice",
+            "choice": "not_software",
+            "probabilities": {
+              "unknown": 0.01,
+              "not_software": 0.84,
+              "software": 0.15,
+              "not_a_role": 0
+            },
+            "confidence": 0.79
+          }
+        },
+        "usage": {
+          "input_tokens": 486,
+          "output_tokens": 53,
+          "cost": 2.0412e-05
+        },
+        "id": "gen-dec-1790119132-8L64SJsaa8cx9X9McT4w",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.326,
+      "choice": "not_software"
+    },
+    {
+      "id": "title-only",
+      "expected": "unknown",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": "Title: Developer\nCompany: Weta Ridge Ltd (fictional)",
+        "questions": {
+          "scope": {
+            "type": "choice",
+            "instructions": "Is this listing a software development role?",
+            "criteria": {
+              "software": "A role whose main work is writing software. This includes roles whose title says AI, automation, integration or platform when writing code is the main work.",
+              "not_software": "A role whose main work is not writing software, such as technical support, data engineering, machine learning research, firmware, testing only or project management.",
+              "not_a_role": "The page is not a specific role, such as an expression of interest or a careers page with no position.",
+              "unknown": "It is a role, but the text does not establish what the main work is."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "scope": {
+            "type": "choice",
+            "choice": "software",
+            "probabilities": {
+              "unknown": 0.46,
+              "software": 0.54,
+              "not_software": 0,
+              "not_a_role": 0
+            },
+            "confidence": 0.38
+          }
+        },
+        "usage": {
+          "input_tokens": 447,
+          "output_tokens": 50,
+          "cost": 1.8774e-05
+        },
+        "id": "gen-dec-1790119133-FWoCzxyxfDgEDqJCiEWF",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.698,
+      "choice": "software"
+    }
+  ]
+}

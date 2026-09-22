@@ -1,0 +1,47 @@
+[
+  {
+    "id": "clear-dev",
+    "note": "Clear case: a junior developer role",
+    "listing": "Title: Junior Full-Stack Developer\nCompany: Kōwhai Labs (fictional)\nLocation: Wellington, hybrid\nYou will build features in our TypeScript and React web app and the Python API behind it, pair with senior engineers, write tests and review pull requests."
+  },
+  {
+    "id": "clear-support",
+    "note": "Clear case: technical support",
+    "listing": "Title: Technical Support Specialist\nCompany: Harbourline Software (fictional)\nLocation: Wellington\nYou will answer customer tickets by phone and email, reproduce issues, write help-centre articles and escalate bugs to the engineering team. No coding required."
+  },
+  {
+    "id": "ai-title-dev",
+    "note": "Trap: AI in the title, but the main work is writing code. The rule says this is in scope",
+    "listing": "Title: AI Automation Engineer\nCompany: Fernbird Digital (fictional)\nLocation: Remote, NZ\nYou will write and maintain the TypeScript services that connect our product to LLM APIs, build internal automation tools and ship code to production every week."
+  },
+  {
+    "id": "data-eng",
+    "note": "Excluded by name in the rule: data engineering",
+    "listing": "Title: Graduate Data Engineer\nCompany: Tūī Analytics (fictional)\nLocation: Auckland\nYou will build and monitor data pipelines in dbt and Airflow, model warehouse tables in Snowflake and support analysts with SQL."
+  },
+  {
+    "id": "qa-only",
+    "note": "Excluded by name in the rule: testing only",
+    "listing": "Title: Manual QA Tester\nCompany: Pūkeko Games (fictional)\nLocation: Wellington\nYou will play-test builds, follow test scripts, log bugs in Jira and verify fixes before release."
+  },
+  {
+    "id": "careers-page",
+    "note": "Not a role at all: a careers page with no position",
+    "listing": "Careers at Moana Systems (fictional)\nWe are always looking for curious people. We have no open roles right now, but follow us on LinkedIn to hear when we are hiring."
+  },
+  {
+    "id": "eoi",
+    "note": "Not a role at all: an expression of interest",
+    "listing": "Title: Expression of Interest - Future Opportunities\nCompany: Kererū Tech (fictional)\nSend us your CV and we will keep it on file for future engineering, design and support roles."
+  },
+  {
+    "id": "ambiguous-integration",
+    "note": "Ambiguous: part configuration, part coding",
+    "listing": "Title: Integration Specialist\nCompany: Rātā Health (fictional)\nLocation: Wellington\nYou will configure our platform for new hospital customers, map their data fields, write some JavaScript scripts for custom connectors and run onboarding workshops."
+  },
+  {
+    "id": "title-only",
+    "note": "Incomplete: title only, no description",
+    "listing": "Title: Developer\nCompany: Weta Ridge Ltd (fictional)"
+  }
+]
