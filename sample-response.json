@@ -1,0 +1,57 @@
+{
+  "mode": "live",
+  "request": {
+    "model": "jev-1.13.0",
+    "state": "Junior Python developer. Remote within New Zealand. Supportive team.",
+    "questions": {
+      "remote_nz": {
+        "type": "choice",
+        "instructions": "Does the listing explicitly allow remote work from New Zealand?",
+        "criteria": {
+          "yes": "Explicitly allows remote work from New Zealand.",
+          "no": "Explicitly requires on-site work or excludes remote work from New Zealand.",
+          "unknown": "The location or remote-work eligibility is not established."
+        }
+      },
+      "mentoring": {
+        "type": "choice",
+        "instructions": "Does the listing explicitly promise scheduled mentoring by a senior developer?",
+        "criteria": {
+          "yes": "Scheduled mentoring by a senior developer is explicitly promised.",
+          "no": "The listing explicitly says this mentoring is unavailable.",
+          "unknown": "Not established. A supportive team alone does not establish scheduled mentoring."
+        }
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "remote_nz": {
+        "type": "choice",
+        "choice": "yes",
+        "confidence": 1.0,
+        "probabilities": {
+          "no": 0.0,
+          "yes": 1.0,
+          "unknown": 0.0
+        }
+      },
+      "mentoring": {
+        "type": "choice",
+        "choice": "unknown",
+        "confidence": 0.99,
+        "probabilities": {
+          "no": 0.0,
+          "yes": 0.0,
+          "unknown": 1.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 463,
+      "output_tokens": 77
+    }
+  },
+  "elapsed_seconds": 0.79
+}

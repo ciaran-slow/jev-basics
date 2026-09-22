@@ -1,0 +1,60 @@
+{
+  "mode": "live",
+  "request": {
+    "model": "typesafe/jev-1.13",
+    "state": "Graduate developer. Weekly 1:1 mentoring with a senior engineer. Based in our Sydney office.",
+    "questions": {
+      "remote_nz": {
+        "type": "choice",
+        "instructions": "Does the listing explicitly allow remote work from New Zealand?",
+        "criteria": {
+          "yes": "Explicitly allows remote work from New Zealand.",
+          "no": "Explicitly requires on-site work or excludes remote work from New Zealand.",
+          "unknown": "The location or remote-work eligibility is not established."
+        }
+      },
+      "mentoring": {
+        "type": "choice",
+        "instructions": "Does the listing explicitly promise scheduled mentoring by a senior developer?",
+        "criteria": {
+          "yes": "Scheduled mentoring by a senior developer is explicitly promised.",
+          "no": "The listing explicitly says this mentoring is unavailable.",
+          "unknown": "Not established. A supportive team alone does not establish scheduled mentoring."
+        }
+      }
+    }
+  },
+  "response": {
+    "model": "typesafe/jev-1.13-20260917",
+    "answers": {
+      "remote_nz": {
+        "type": "choice",
+        "choice": "no",
+        "probabilities": {
+          "no": 0.89,
+          "unknown": 0.11,
+          "yes": 0
+        },
+        "confidence": 0.83
+      },
+      "mentoring": {
+        "type": "choice",
+        "choice": "yes",
+        "probabilities": {
+          "no": 0,
+          "unknown": 0,
+          "yes": 1
+        },
+        "confidence": 1
+      }
+    },
+    "usage": {
+      "input_tokens": 470,
+      "output_tokens": 77,
+      "cost": 1.974e-05
+    },
+    "id": "gen-dec-1790115993-xOO0yBFxseYh8G1JlO4r",
+    "provider": "TypeSafe"
+  },
+  "elapsed_seconds": 0.63
+}
