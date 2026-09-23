@@ -1,0 +1,29 @@
+{
+  "_note": "v1 written on 2026-09-23 before any live run. v2 written on 2026-09-23 after reading v1 results, before any v2 run: unchanged from v1, because v2 aims to make the code and Jev match these. 'same' means the app should warn about a duplicate, 'different' means treat them as separate, 'unsure' means ask me. Drafted with Claude; check and change these to match your own judgement before running.",
+  "v1": {
+    "legal-suffix": "same",
+    "macron": "same",
+    "short-name": "same",
+    "shared-word": "different",
+    "parent-company": "different",
+    "overseas-office": "different",
+    "country-suffix": "same",
+    "same-animal": "different",
+    "no-evidence": "unsure",
+    "partial-evidence": "same",
+    "rename": "same"
+  },
+  "v2": {
+    "legal-suffix": "same",
+    "macron": "same",
+    "short-name": "same",
+    "shared-word": "different",
+    "parent-company": "different",
+    "overseas-office": "different",
+    "country-suffix": "same",
+    "same-animal": "different",
+    "no-evidence": "unsure",
+    "partial-evidence": "same",
+    "rename": "same"
+  }
+}

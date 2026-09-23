@@ -1,0 +1,409 @@
+{
+  "mode": "live",
+  "version": "v1",
+  "started": "2026-09-23T12:13:39",
+  "cases": [
+    {
+      "id": "legal-suffix",
+      "expected": "same",
+      "decided_by": "code",
+      "decision": "same"
+    },
+    {
+      "id": "macron",
+      "expected": "same",
+      "decided_by": "code",
+      "decision": "same"
+    },
+    {
+      "id": "short-name",
+      "expected": "same",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Fernbird Digital",
+            "website": "https://fernbird.example",
+            "notes": "Wellington web agency."
+          },
+          "b": {
+            "name": "Fernbird",
+            "website": "https://fernbird.example/careers",
+            "notes": null
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to?",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.84
+          }
+        },
+        "usage": {
+          "input_tokens": 443,
+          "output_tokens": 21,
+          "cost": 1.8606e-05
+        },
+        "id": "gen-dec-1790122419-5qiWPOwX7zhCZut7N3mK",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.344,
+      "decision": "same"
+    },
+    {
+      "id": "shared-word",
+      "expected": "different",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Tūī Analytics",
+            "website": "https://tuianalytics.example",
+            "notes": "Data consultancy in Wellington."
+          },
+          "b": {
+            "name": "Tui Health",
+            "website": "https://tuihealth.example",
+            "notes": "Makes a clinic booking app. Based in Christchurch."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to?",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.04
+          }
+        },
+        "usage": {
+          "input_tokens": 458,
+          "output_tokens": 21,
+          "cost": 1.9236e-05
+        },
+        "id": "gen-dec-1790122419-Ln6P0nIqCYNI2udLGsSB",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.368,
+      "decision": "different"
+    },
+    {
+      "id": "parent-company",
+      "expected": "different",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Harbourline Software",
+            "website": "https://harbourline.example",
+            "notes": "Builds logistics software."
+          },
+          "b": {
+            "name": "Harbourline Group",
+            "website": "https://harbourlinegroup.example",
+            "notes": "Holding company that owns Harbourline Software and two property firms."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to?",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.08
+          }
+        },
+        "usage": {
+          "input_tokens": 460,
+          "output_tokens": 21,
+          "cost": 1.932e-05
+        },
+        "id": "gen-dec-1790122419-ClgHeelnmBHwNYb9cVFl",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.409,
+      "decision": "different"
+    },
+    {
+      "id": "overseas-office",
+      "expected": "different",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Moana Systems",
+            "website": "https://moanasystems.example",
+            "notes": "Wellington."
+          },
+          "b": {
+            "name": "Moana Systems Australia",
+            "website": "https://moanasystems.example/au",
+            "notes": "Sydney office of Moana Systems. Hires separately from the NZ team."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to?",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.12
+          }
+        },
+        "usage": {
+          "input_tokens": 460,
+          "output_tokens": 21,
+          "cost": 1.932e-05
+        },
+        "id": "gen-dec-1790122420-hHKTyxWrnHr6LxICCJG0",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.417,
+      "decision": "different"
+    },
+    {
+      "id": "country-suffix",
+      "expected": "same",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Rātā Health",
+            "website": "https://ratahealth.example",
+            "notes": null
+          },
+          "b": {
+            "name": "Rata Health NZ",
+            "website": "https://ratahealth.example",
+            "notes": null
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to?",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.83
+          }
+        },
+        "usage": {
+          "input_tokens": 438,
+          "output_tokens": 21,
+          "cost": 1.8396e-05
+        },
+        "id": "gen-dec-1790122420-j1mNifQvJWZUkzvoXHYW",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.312,
+      "decision": "same"
+    },
+    {
+      "id": "same-animal",
+      "expected": "different",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Pūkeko Games",
+            "website": null,
+            "notes": "Indie game studio in Wellington."
+          },
+          "b": {
+            "name": "Pukeko Studios",
+            "website": null,
+            "notes": "Film animation studio in Auckland."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to?",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.04
+          }
+        },
+        "usage": {
+          "input_tokens": 437,
+          "output_tokens": 21,
+          "cost": 1.8354e-05
+        },
+        "id": "gen-dec-1790122421-uD7qWdcRVRt7BkpvdBfN",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.315,
+      "decision": "different"
+    },
+    {
+      "id": "no-evidence",
+      "expected": "unsure",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Kahu",
+            "website": null,
+            "notes": null
+          },
+          "b": {
+            "name": "Kahu Cloud",
+            "website": null,
+            "notes": null
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to?",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.66
+          }
+        },
+        "usage": {
+          "input_tokens": 419,
+          "output_tokens": 21,
+          "cost": 1.7598e-05
+        },
+        "id": "gen-dec-1790122421-PYekmCXKR4aXbnL0sqoO",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.504,
+      "decision": "unsure"
+    },
+    {
+      "id": "partial-evidence",
+      "expected": "same",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Kererū Tech",
+            "website": "https://kererutech.example",
+            "notes": "Wellington software company."
+          },
+          "b": {
+            "name": "Kereru Technologies",
+            "website": null,
+            "notes": "Software company in Wellington, about 30 staff."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to?",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.78
+          }
+        },
+        "usage": {
+          "input_tokens": 449,
+          "output_tokens": 21,
+          "cost": 1.8858e-05
+        },
+        "id": "gen-dec-1790122421-UyjBs8gnxTkzrUyq8KIa",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.293,
+      "decision": "unsure"
+    },
+    {
+      "id": "rename",
+      "expected": "same",
+      "decided_by": "code",
+      "decision": "different"
+    }
+  ]
+}

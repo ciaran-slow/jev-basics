@@ -1,0 +1,68 @@
+[
+  {
+    "id": "legal-suffix",
+    "note": "Same company, differs only by capitals and 'Ltd'. Code should settle this",
+    "a": {"name": "Tradewind", "website": null, "notes": null},
+    "b": {"name": "TradeWind Ltd", "website": null, "notes": null}
+  },
+  {
+    "id": "macron",
+    "note": "Same company, differs by a macron and 'Limited'. Code should settle this",
+    "a": {"name": "Kōwhai Labs", "website": "https://kowhailabs.example", "notes": null},
+    "b": {"name": "Kowhai Labs Limited", "website": null, "notes": null}
+  },
+  {
+    "id": "short-name",
+    "note": "Clear case: short name, same website",
+    "a": {"name": "Fernbird Digital", "website": "https://fernbird.example", "notes": "Wellington web agency."},
+    "b": {"name": "Fernbird", "website": "https://fernbird.example/careers", "notes": null}
+  },
+  {
+    "id": "shared-word",
+    "note": "Clear case: share a word, different businesses in different cities",
+    "a": {"name": "Tūī Analytics", "website": "https://tuianalytics.example", "notes": "Data consultancy in Wellington."},
+    "b": {"name": "Tui Health", "website": "https://tuihealth.example", "notes": "Makes a clinic booking app. Based in Christchurch."}
+  },
+  {
+    "id": "parent-company",
+    "note": "Ambiguous: a holding company and one of the companies it owns",
+    "a": {"name": "Harbourline Software", "website": "https://harbourline.example", "notes": "Builds logistics software."},
+    "b": {"name": "Harbourline Group", "website": "https://harbourlinegroup.example", "notes": "Holding company that owns Harbourline Software and two property firms."}
+  },
+  {
+    "id": "overseas-office",
+    "note": "Ambiguous: same brand, overseas office that hires separately",
+    "a": {"name": "Moana Systems", "website": "https://moanasystems.example", "notes": "Wellington."},
+    "b": {"name": "Moana Systems Australia", "website": "https://moanasystems.example/au", "notes": "Sydney office of Moana Systems. Hires separately from the NZ team."}
+  },
+  {
+    "id": "country-suffix",
+    "note": "Same company with 'NZ' added, same website",
+    "a": {"name": "Rātā Health", "website": "https://ratahealth.example", "notes": null},
+    "b": {"name": "Rata Health NZ", "website": "https://ratahealth.example", "notes": null}
+  },
+  {
+    "id": "same-animal",
+    "note": "Share a word, different industries and cities",
+    "a": {"name": "Pūkeko Games", "website": null, "notes": "Indie game studio in Wellington."},
+    "b": {"name": "Pukeko Studios", "website": null, "notes": "Film animation studio in Auckland."}
+  },
+  {
+    "id": "no-evidence",
+    "note": "Incomplete: two names and nothing else",
+    "a": {"name": "Kahu", "website": null, "notes": null},
+    "b": {"name": "Kahu Cloud", "website": null, "notes": null}
+  },
+  {
+    "id": "partial-evidence",
+    "note": "Ambiguous: close names, only one has a website, notes fit",
+    "a": {"name": "Kererū Tech", "website": "https://kererutech.example", "notes": "Wellington software company."},
+    "b": {"name": "Kereru Technologies", "website": null, "notes": "Software company in Wellington, about 30 staff."}
+  },
+  {
+    "id": "rename",
+    "note": "Same company after a rebrand. The names share nothing, so code may not ask Jev",
+    "a": {"name": "Weta Ridge", "website": null, "notes": null},
+    "b": {"name": "WR Digital", "website": null, "notes": "Formerly Weta Ridge; rebranded in 2025."}
+  }
+]

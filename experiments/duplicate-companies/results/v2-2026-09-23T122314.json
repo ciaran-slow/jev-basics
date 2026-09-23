@@ -1,0 +1,451 @@
+{
+  "mode": "live",
+  "version": "v2",
+  "started": "2026-09-23T12:23:14",
+  "cases": [
+    {
+      "id": "legal-suffix",
+      "expected": "same",
+      "decided_by": "code",
+      "decision": "same"
+    },
+    {
+      "id": "macron",
+      "expected": "same",
+      "decided_by": "code",
+      "decision": "same"
+    },
+    {
+      "id": "short-name",
+      "expected": "same",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Fernbird Digital",
+            "website": "https://fernbird.example",
+            "notes": "Wellington web agency."
+          },
+          "b": {
+            "name": "Fernbird",
+            "website": "https://fernbird.example/careers",
+            "notes": null
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to? Weigh the evidence: the same website, or notes saying one is a former or other name of the other, is strong evidence. Similar names alone are weak evidence either way.",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.79
+          }
+        },
+        "usage": {
+          "input_tokens": 479,
+          "output_tokens": 21,
+          "cost": 2.0118e-05
+        },
+        "id": "gen-dec-1790122995-tV9Xlq4uThuvTeBh5Y3l",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.86,
+      "decision": "unsure"
+    },
+    {
+      "id": "shared-word",
+      "expected": "different",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Tūī Analytics",
+            "website": "https://tuianalytics.example",
+            "notes": "Data consultancy in Wellington."
+          },
+          "b": {
+            "name": "Tui Health",
+            "website": "https://tuihealth.example",
+            "notes": "Makes a clinic booking app. Based in Christchurch."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to? Weigh the evidence: the same website, or notes saying one is a former or other name of the other, is strong evidence. Similar names alone are weak evidence either way.",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.04
+          }
+        },
+        "usage": {
+          "input_tokens": 494,
+          "output_tokens": 21,
+          "cost": 2.0748e-05
+        },
+        "id": "gen-dec-1790122995-o0sRYs4Ej9DK0BHHideh",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.373,
+      "decision": "different"
+    },
+    {
+      "id": "parent-company",
+      "expected": "different",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Harbourline Software",
+            "website": "https://harbourline.example",
+            "notes": "Builds logistics software."
+          },
+          "b": {
+            "name": "Harbourline Group",
+            "website": "https://harbourlinegroup.example",
+            "notes": "Holding company that owns Harbourline Software and two property firms."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to? Weigh the evidence: the same website, or notes saying one is a former or other name of the other, is strong evidence. Similar names alone are weak evidence either way.",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.08
+          }
+        },
+        "usage": {
+          "input_tokens": 496,
+          "output_tokens": 21,
+          "cost": 2.0832e-05
+        },
+        "id": "gen-dec-1790122996-wYJm4LJKOx7betuaNuxN",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.34,
+      "decision": "different"
+    },
+    {
+      "id": "overseas-office",
+      "expected": "different",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Moana Systems",
+            "website": "https://moanasystems.example",
+            "notes": "Wellington."
+          },
+          "b": {
+            "name": "Moana Systems Australia",
+            "website": "https://moanasystems.example/au",
+            "notes": "Sydney office of Moana Systems. Hires separately from the NZ team."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to? Weigh the evidence: the same website, or notes saying one is a former or other name of the other, is strong evidence. Similar names alone are weak evidence either way.",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.12
+          }
+        },
+        "usage": {
+          "input_tokens": 496,
+          "output_tokens": 21,
+          "cost": 2.0832e-05
+        },
+        "id": "gen-dec-1790122996-cOSZrxE0zP26AddegFaT",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.477,
+      "decision": "different"
+    },
+    {
+      "id": "country-suffix",
+      "expected": "same",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Rātā Health",
+            "website": "https://ratahealth.example",
+            "notes": null
+          },
+          "b": {
+            "name": "Rata Health NZ",
+            "website": "https://ratahealth.example",
+            "notes": null
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to? Weigh the evidence: the same website, or notes saying one is a former or other name of the other, is strong evidence. Similar names alone are weak evidence either way.",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.86
+          }
+        },
+        "usage": {
+          "input_tokens": 474,
+          "output_tokens": 21,
+          "cost": 1.9908e-05
+        },
+        "id": "gen-dec-1790122997-4KsbcdaW1NQbNNTKiYXw",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.309,
+      "decision": "same"
+    },
+    {
+      "id": "same-animal",
+      "expected": "different",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Pūkeko Games",
+            "website": null,
+            "notes": "Indie game studio in Wellington."
+          },
+          "b": {
+            "name": "Pukeko Studios",
+            "website": null,
+            "notes": "Film animation studio in Auckland."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to? Weigh the evidence: the same website, or notes saying one is a former or other name of the other, is strong evidence. Similar names alone are weak evidence either way.",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.06
+          }
+        },
+        "usage": {
+          "input_tokens": 473,
+          "output_tokens": 21,
+          "cost": 1.9866e-05
+        },
+        "id": "gen-dec-1790122997-vjBvABgtXKMNZTAsRSKA",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.417,
+      "decision": "different"
+    },
+    {
+      "id": "no-evidence",
+      "expected": "unsure",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Kahu",
+            "website": null,
+            "notes": null
+          },
+          "b": {
+            "name": "Kahu Cloud",
+            "website": null,
+            "notes": null
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to? Weigh the evidence: the same website, or notes saying one is a former or other name of the other, is strong evidence. Similar names alone are weak evidence either way.",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.56
+          }
+        },
+        "usage": {
+          "input_tokens": 455,
+          "output_tokens": 21,
+          "cost": 1.911e-05
+        },
+        "id": "gen-dec-1790122997-3BJMbweOj3xKmzOzkHYo",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.45,
+      "decision": "unsure"
+    },
+    {
+      "id": "partial-evidence",
+      "expected": "same",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Kererū Tech",
+            "website": "https://kererutech.example",
+            "notes": "Wellington software company."
+          },
+          "b": {
+            "name": "Kereru Technologies",
+            "website": null,
+            "notes": "Software company in Wellington, about 30 staff."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to? Weigh the evidence: the same website, or notes saying one is a former or other name of the other, is strong evidence. Similar names alone are weak evidence either way.",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.66
+          }
+        },
+        "usage": {
+          "input_tokens": 485,
+          "output_tokens": 21,
+          "cost": 2.037e-05
+        },
+        "id": "gen-dec-1790122998-IECJwnP5tG3TZO5STV1t",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.393,
+      "decision": "unsure"
+    },
+    {
+      "id": "rename",
+      "expected": "same",
+      "decided_by": "jev",
+      "request": {
+        "model": "typesafe/jev-1.13",
+        "state": {
+          "a": {
+            "name": "Weta Ridge",
+            "website": null,
+            "notes": null
+          },
+          "b": {
+            "name": "WR Digital",
+            "website": null,
+            "notes": "Formerly Weta Ridge; rebranded in 2025."
+          }
+        },
+        "questions": {
+          "same_company": {
+            "type": "noul",
+            "instructions": "Do `a` and `b` refer to the same company: the same employer someone would apply to? Weigh the evidence: the same website, or notes saying one is a former or other name of the other, is strong evidence. Similar names alone are weak evidence either way.",
+            "criteria": {
+              "true": "The same organisation, written differently: another spelling, a shortened name, a legal suffix, or a new name after a rename.",
+              "false": "Different organisations, even if the names share words. This includes related but separate companies, such as a parent and a company it owns, or an overseas office that hires separately."
+            }
+          }
+        }
+      },
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "same_company": {
+            "type": "noul",
+            "noul": 0.96
+          }
+        },
+        "usage": {
+          "input_tokens": 473,
+          "output_tokens": 21,
+          "cost": 1.9866e-05
+        },
+        "id": "gen-dec-1790122998-jYe6kULr67Df6Sbnqi9a",
+        "provider": "TypeSafe"
+      },
+      "elapsed_seconds": 0.337,
+      "decision": "same"
+    }
+  ]
+}

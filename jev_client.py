@@ -77,3 +77,17 @@ def validate_choices(data, questions):
         if abs(sum(probabilities.values()) - 1) > 0.02:
             raise JevError(f"Probabilities do not sum to one for {name}")
     return data
+
+
+def validate_nouls(data, questions):
+    """Check each Noul answer is a probability from 0 to 1. Noul has no confidence field."""
+    if not isinstance(data, dict) or not isinstance(data.get("answers"), dict):
+        raise JevError("Response has no answers object")
+    for name in questions:
+        answer = data["answers"].get(name)
+        if not isinstance(answer, dict) or answer.get("type") != "noul":
+            raise JevError(f"Missing Noul answer for {name}")
+        value = answer.get("noul")
+        if type(value) not in (int, float) or not 0 <= value <= 1:
+            raise JevError(f"Invalid probability for {name}")
+    return data
