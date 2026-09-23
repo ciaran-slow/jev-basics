@@ -1,153 +1,100 @@
-# Mission 11: Experiment with Jev
+# Jev basics: Launchpad Mission 11
 
-Start by getting a simple Jev call working. Then explore what people are
-building on JevMade and try three different use cases yourself.
+My work for Launchpad Mission 11, "Experiment with Jev". The mission instructions are in [MISSION.md](MISSION.md).
 
-Work in your own project or learning repo. Keep each experiment small: a
-script, notebook or simple interface that shows the input and Jev's answer.
+**Jev** is a decision model from TypeSafe AI. You send it some **state** (text or JSON) and one or more **typed questions**, and it sends back structured answers with probabilities, never prose. I tried it on three decisions from my job-search app, **jobfinder**. Each experiment ran two versions of its question on the same fictional examples, with my expected answers written down before each run.
 
-## 1. Get a simple call working
+_The conclusions below were drafted with Claude from the saved results. I'll edit them into my own words._
 
-This folder includes a Python starter that uses the standard library. It
-asks two Choice questions about a fictional job listing.
+---
 
-From your local copy of the Launchpad repo:
+## The comparison
 
-```sh
-cd missions/11-build-with-jev
-```
+| Use case | What I tried | What happened | Would I use it? |
+|---|---|---|---|
+| **[1. Scope gate](experiments/scope-gate/)**<br>Should jobfinder's grader run at all? | **Input:** one job listing as text.<br>**Question:** one **Choice**: `software` / `not_software` / `not_a_role` / `unknown`, taken from jobfinder's scope rule.<br>**Code:** skip the grader and score 1 for out-of-scope listings; grade the rest.<br>**v2:** a wider `unknown`, and skip only when confidence ≥ 0.9. | 8/9 matched in both versions. Every clear case scored 0.95–1, including an "AI Automation Engineer" trap. A mixed-duties role was called `not_software` both times. The **0.9 threshold in code**, not the rewording, stopped it from being wrongly skipped. | **Yes, with the threshold.** It cheaply removes obviously out-of-scope listings. I wouldn't let the choice alone skip listings. |
+| **[2. Prospect triage](experiments/prospect-triage/)**<br>Which leads should I look at first? | **Input:** a prospect as **JSON**, with `null` fields, plus what I'm looking for.<br>**Question:** one **Choice**: `promote` / `watch` / `drop` / `unknown`.<br>**Code:** a badge and a queue order only; no status is ever changed.<br>**v2:** stop `promote` and `watch` overlapping; sort by `promote` probability; an "unsure" badge below 0.5. | 8/10 → 9/10. Clear drops always scored 1.0, and sparse prospects were correctly `unknown`. The best lead was labelled `watch` both times, but it always had the highest `promote` probability, so **sorting by probability** put it first. The 9/10 overstates things: one "fix" was a 0.53/0.47 coin flip. | **Yes, as a sort order and hint.** A wrong answer only moves a prospect up or down the queue. Never to auto-promote or auto-drop. |
+| **[3. Duplicate companies](experiments/duplicate-companies/)**<br>Is this new company already in the database? | **Input:** two companies (name, website, notes) as JSON.<br>**Question:** one **Noul**: p(same company).<br>**Code:** normalise names first (macrons, "Ltd") and only ask Jev about near misses; ≥ 0.8 warn, ≤ 0.2 separate, otherwise ask me.<br>**v2:** also ask when websites match or notes mention the other name; tell Jev how to weigh evidence. | 9/11 in both versions, and each version run twice. Answers were **stable within 0.02** between runs. The rebrand was missed by the v1 code filter, then scored 0.96 once v2 sent it to Jev. The evidence wording made Jev more cautious, so two real duplicates became "ask me". Every v2 mistake was safe. | **Yes, as a warning before saving.** Never to merge automatically. Next I'd pass facts code already knows, like "same website host", in the state. |
 
-TypeSafe has paused new sign-ups, so the starter calls Jev through
-OpenRouter. Create an [OpenRouter API key](https://openrouter.ai/keys) and
-put it in a `.env` file in this folder (already gitignored):
+### What all three had in common
+
+- **The code change mattered more than the wording change, every time.** A confidence threshold (experiment 1), a sort by probability (experiment 2) and a wider filter (experiment 3) each fixed the main problem. Rewording the question only nudged the probabilities.
+- **Read the probabilities, not just the label.** The most useful signal was often the probability spread: a 17% `promote` share, a 0.61 confidence, a 0.79 p(same). Matching the label alone hid how close some calls were.
+- **Choose which way mistakes go.** Each design leans towards the safe mistake: grade rather than skip, sort lower rather than drop, ask me rather than merge.
+- **Criteria wording can backfire.** Words like "yet", "soon" and "weak evidence" shifted answers in ways I didn't fully predict, including on cases I wasn't trying to change.
+
+## One interesting result from each
+
+- **Scope gate:** the Integration Specialist was answered "correctly" (`not_software`, matching my guess) with 0.79 confidence. That's exactly the answer that would have hidden a job I might want. Being right on an unclear case can still be a bad basis for an irreversible action.
+- **Prospect triage:** a friend's vague tip was the most *confident* answer (`watch`, 1.0), so v1 put it at the top of the queue. Confidence measures how sure Jev is of the category, not how good the prospect is.
+- **Duplicate companies:** "Weta Ridge" and "WR Digital" went from a silent miss in v1 to 0.96 in v2, the most confident "same" in the experiment. It only needed code to let Jev see the "Formerly Weta Ridge" note.
+
+## Which one I'd explore further
+
+**The scope gate.** It has the most direct value, since it saves a grader call on every out-of-scope listing. It's also the easiest to test on real data: jobfinder already has hand-graded eval listings (`evals/dev.jsonl`) and a runner. The next step is to run the gate on those, compare it with the hand grades, and repeat each version several times. The mission also suggests Mission 10's eval approach for exactly this.
+
+---
+
+## Earlier steps
+
+- **Step 1: first call.** [demo.py](demo.py) makes one call about a fictional job listing. My two live runs are in [my-first-run.json](my-first-run.json) and [run-2.json](run-2.json), and my predictions and comparison are in [predictions.md](predictions.md).
+- **Step 2: exploring JevMade.** Notes on three projects are in [jevmade-notes.md](jevmade-notes.md): what Jev receives, what it returns, what code does with the answer, and what I could and couldn't verify.
+
+## Inspiration
+
+- **jobfinder** (my app, in a private repo): all three use cases come from its scope rule, prospect queue and company table.
+- **[jev-review](https://github.com/devagrawal09/jev-review)** (devagrawal09): Jev judges, code applies thresholds; separate calls for dependent steps.
+- **[jev-search](https://github.com/superagents-lab/jev-search)** (superagents-lab): a Noul probability per result, used directly as a ranking score. This fed into the sort-by-probability idea in experiment 2.
+- **[Claude Code Trace](https://github.com/delexw/claude-code-trace)** (delexw): Noul and Score answers combined with fixed weights in code.
+- **[JevMade](https://jevmade.com/)**, where I found them.
+
+## Running the code
+
+You need **Python 3** (standard library only) and an **OpenRouter API key**. Create `.env` in the repo root:
 
 ```sh
 OPENROUTER_API_KEY=your-key-here
 ```
 
-Then run:
+`.env` is git-ignored and never committed. No saved result contains the key.
 
-```sh
-python3 demo.py --live --output my-first-run.json
-```
-
-This makes one API request and saves the input and response. Calls may incur
-charges. Use a new output filename each time. Keep your key out of commits,
-screenshots, browser frontends and coding-agent conversations.
-
-Open the saved JSON beside `demo.py`. Find the state, questions, allowed
-choices and returned answers. Explain what you sent and what came back.
-
-Copy the starter into your own repo. Change the listing text in `STATE`
-and predict the answers before making another call. Compare the prediction
-with the actual response.
-
-If you are waiting for a key, inspect the recorded call:
+Replay a saved run. This makes no request and costs nothing:
 
 ```sh
 python3 demo.py --replay sample-response.json
+python3 experiments/scope-gate/scope_gate.py --replay experiments/scope-gate/results/v2-2026-09-23T112138.json
+python3 experiments/prospect-triage/prospect_triage.py --replay experiments/prospect-triage/results/v2-2026-09-23T114450.json
+python3 experiments/duplicate-companies/duplicate_companies.py --replay experiments/duplicate-companies/results/v2-2026-09-23T122314.json
 ```
 
-Replay makes no request. It always shows the saved response, even if you
-change `STATE`. Arrange access for a live call and mark any replayed results
-as recorded rather than fresh predictions.
+Make fresh live calls. These are paid, but each is well under a cent:
 
-## 2. Explore JevMade
+```sh
+python3 demo.py --live --output my-new-run.json                              # 1 request
+python3 experiments/scope-gate/scope_gate.py --live                          # 9 requests
+python3 experiments/prospect-triage/prospect_triage.py --live                # 10 requests
+python3 experiments/duplicate-companies/duplicate_companies.py --dry-run     # free: shows which pairs would go to Jev
+python3 experiments/duplicate-companies/duplicate_companies.py --live        # 9 requests
+```
 
-Browse [JevMade](https://jevmade.com/). Choose three projects that use Jev
-for different purposes and follow their links to the original repos or demos.
+Every experiment script accepts `--version v1` to rerun the original question. Each experiment's README explains its other options.
 
-For each, write a few notes:
+### About the results
 
-- What does the application do?
-- What state does Jev receive, and what decision does it return?
-- What does ordinary code do with that answer?
-- What small part could you try yourself?
+- **Every result file in `experiments/*/results/` is a recorded live response** from 2026-09-23 (model `typesafe/jev-1.13-20260917`), saved with its full request.
+- **Replayed output is always labelled** `OFFLINE REPLAY (recorded, not a fresh prediction)`. A replay shows what Jev said then, not what it would say now.
+- **All test inputs are fictional**, and websites use the reserved `.example` domain. How Jev behaves on real listings, prospects and companies is **still untested**.
+- In total: **74 live requests, about $0.0016**, each taking 0.3–0.9 seconds.
 
-Distinguish what you can verify from the maker's claims. If the code or
-question format is unavailable, say so.
+## Repo layout
 
-Some starting points from the session:
-
-| Project | What to investigate |
+| Path | What it is |
 |---|---|
-| [DMX preview](https://x.com/thekitze/status/2100570975175877106) | Simple rules alongside judgements about usefulness, post type and topic |
-| [Your Signal](https://github.com/MithrilMan/your-signal) | Source code for reversible X timeline filtering |
-| [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast) | Choosing a browser action and target |
-| [Jev Trader](https://github.com/jarrodwatts/jev-trader) | Buy/sell choices with limits checked in code |
-| [Elevator Three](https://github.com/mrmt/elevator-three) | Choosing the next scene or phrase in an instrument |
-
-DMX's linked announcement is a next-version preview. Keep any trading
-experiment simulated. Review what data a demo sends before trying it.
-
-## 3. Experiment with three different use cases
-
-Choose three distinct things to try, inspired by your exploration or your
-own ideas. For example:
-
-- Filter saved posts against your interests.
-- Route support messages to a team.
-- Choose the next action for a character or interactive scene.
-
-Three prompt variations for the same task count as one use case. You can
-share the API-calling code across all three experiments.
-
-For each use case:
-
-1. Write down the input, the question and the answers your code can use.
-2. Build a small working call. Show the input and the raw response.
-3. Try a handful of examples, including a clear case and an ambiguous or
-   incomplete one. Write your expected answers before running them.
-4. Read the results. Change the question, criteria or state and rerun the
-   same examples. Keep both sets of results.
-5. Write a short conclusion: what worked, what failed and whether you would
-   use Jev for this task.
-
-For a creative task, describe acceptable behaviour rather than insisting
-there is one correct answer. You might want a range of musical choices but
-still require them to belong to the current scene's allowed options.
-
-### Tips while experimenting
-
-Start with Choice if named options fit your task. Score uses ordered
-criteria; Noul returns a probability from 0 to 1 for a proposition.
-Use the [quickstart](https://docs.typesafe.ai/introduction/quickstart)
-and [question-type reference](https://docs.typesafe.ai/introduction).
-
-The starter's validator checks Choice answers against `QUESTIONS`. Adapt it
-if you switch to Score or Noul. Explicit checks or Pydantic can validate the
-reply; neither establishes that the decision is correct.
-
-Keep requests deliberate and bounded. Use safe sample data and reversible
-local actions. Handle failed requests visibly, and keep arithmetic and
-permission checks in code. An `unknown` choice can be useful when the input
-does not establish an answer.
-
-Questions in one request are independent. Sequence dependent decisions in
-code. The hosted model takes text or JSON state, so describe a visual scene
-rather than sending it an image.
-
-Confidence is not proof of correctness. Choice and Score include confidence;
-Noul has no separate confidence field. Read outputs yourself before deciding
-whether a threshold would help.
-
-## Finish with a comparison
-
-Save all three experiments and a short comparison in your repo:
-
-| Use case | What you tried | What happened | Would you use it? |
-|---|---|---|---|
-| Your first experiment | Input and question | Observations from your runs | Why or why not? |
-| Your second experiment | Input and question | Observations from your runs | Why or why not? |
-| Your third experiment | Input and question | Observations from your runs | Why or why not? |
-
-Include links to the projects that inspired you, instructions for running
-your code and saved results without credentials. Link the work from your
-learning repo if you used a separate project repo.
-
-Be ready to show an interesting result from each use case and explain which
-one you would explore further. Label any fixtures or recorded responses;
-model behaviour on new inputs remains untested until you make live calls.
-
-If you have time, trace an experiment in Langfuse or expand the most promising
-one using the eval approach from [Mission 10](../10-evaluate-jobfinder/).
+| [MISSION.md](MISSION.md) | The mission instructions |
+| [demo.py](demo.py), [test_demo.py](test_demo.py) | Step 1 starter and its tests (`python3 -m unittest test_demo`) |
+| [predictions.md](predictions.md), `my-first-run.json`, `run-2.json` | Step 1 predictions and live results |
+| [jevmade-notes.md](jevmade-notes.md) | Step 2 notes on three JevMade projects |
+| [jev_client.py](jev_client.py) | Shared calling and validation code for all three experiments |
+| [experiments/scope-gate/](experiments/scope-gate/) | Experiment 1 |
+| [experiments/prospect-triage/](experiments/prospect-triage/) | Experiment 2 |
+| [experiments/duplicate-companies/](experiments/duplicate-companies/) | Experiment 3 |
